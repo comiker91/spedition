@@ -16,10 +16,14 @@ def bestellung(request):
         button = request.POST['button']
         if button == "cancel":
             return redirect("/")
+        elif button == "new":
+            template = 'spedition/bestellung.html'
+            kundends = Kunde.objects.all()
+            return render(request,template,{'kunden':kundends})           
         else:
             bestellungen = request.POST['bestellung'] 
-            kunde = Kunde.objects.get(name=(request.POST['kunde']))
-            print(kunde)
+            kunde = Kunde.objects.get(id=(request.POST['kunde']))
             ds = Bestellung(bestellung=bestellungen,kunde=kunde)
             ds.save()
-            return redirect("/")
+            template = 'spedition/erfolgreich.html'
+            return render(request,template,{})

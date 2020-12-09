@@ -16,13 +16,14 @@
       <label for="inputState">Kunde</label>
       <select id="inputState" class="form-control" name="kunde">
         {% for kunde in kunden %}
-        <option> {{kunde.name}} </option>
+        <option value="{{kunde.id}}"> {{kunde.name}} </option>
         {% endfor %}
       </select>
   </div>
   
-  <button type="submit" class="btn btn-primary" name="button" select="save">Absenden</button>
-  <button type="submit" class="btn btn-danger" name="button" select="cancel">Abbrechen</button>
+  <button type="submit" class="btn btn-primary" name="button" value="save">Absenden</button>
+  <button type="reset" class="btn btn-success" >Neu</button>
+  <button type="submit" class="btn btn-danger" name="button" value="cancel">Abbrechen</button>
 </form>
 </div>
 {% endblock content %}
