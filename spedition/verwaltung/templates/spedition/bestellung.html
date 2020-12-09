@@ -1,0 +1,30 @@
+{% extends 'spedition/index.html' %}
+
+{% block title %}Neuer titel{% endblock title %}
+{% block content %}
+<div class="col">
+<h1>Bitte bestellung eingeben:</h1>
+<br />
+</div>
+<div class="col">
+<form method="POST">
+{% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Bestellung</label>
+    <input type="text" class="form-control" id="textinput" aria-describedby="bestellungHelp" name="bestellung">
+    <small id="bestellungHelp" class="form-text text-muted">Ihre Bestellung Bitte</small>
+  </div>
+  <div class="form-group">
+      <label for="inputState">Kunde</label>
+      <select id="inputState" class="form-control" name="kunde">
+        {% for kunde in kunden %}
+        <option> {{kunde.name}} </option>
+        {% endfor %}
+      </select>
+  </div>
+  
+  <button type="submit" class="btn btn-primary" name="button" select="save">Absenden</button>
+  <button type="submit" class="btn btn-danger" name="button" select="cancel">Abbrechen</button>
+</form>
+</div>
+{% endblock content %}

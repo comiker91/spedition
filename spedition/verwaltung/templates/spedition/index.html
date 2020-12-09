@@ -16,6 +16,8 @@
   <body>
     <div class="container bunt">
         <div class="row">
+        {% block content %}
+        
             <h1>{% block h1 %}Verwaltungsportal{% endblock h1 %}</h1>
             <br />
             <br />
@@ -98,6 +100,7 @@
                 </div>
                 </sb-card-view-details>
                 </div>
+                {% endblock content %}
                 </div>
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
